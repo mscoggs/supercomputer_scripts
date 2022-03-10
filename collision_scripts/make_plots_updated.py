@@ -27,7 +27,7 @@ mm_merger_pos=[[13976.95, 13373.77, 13066.069], [13976.29, 13374.94, 13077.461],
 yt.enable_parallelism()
 
 
-file_list = glob.glob("DD0*\\"+"output_0???", recursive=True)
+file_list = glob.glob("DD0???\\"+"output_0???", recursive=True)
 for file in file_list:
     ds = yt.load(file)
     redshift = ds.current_redshift
@@ -92,7 +92,7 @@ for file in file_list:
 
         if(y==0): a,b = 0,1
         elif(y==1): a,b = 1,2
-        else: a,b = 0,2
+        else: a,b = 2,0
         dp = (np.array(mm_pos[i])-np.array(mm_merger_pos[j]))
         filt = np.where((np.abs(mm_x+dp[a]) <0.9*radius) & (np.abs(mm_y+dp[b]) <0.9*radius))
         axes[0][y].scatter(np.array(mm_x+dp[a])[filt], np.array(mm_y+dp[b])[filt],s=10, c="tab:orange", label=r"$r_{vir}}$ MMH")
