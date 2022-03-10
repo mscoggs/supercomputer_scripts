@@ -32,9 +32,9 @@ for DD in DD_list:
     for line in sbatch_file:
         line = line.strip()
         changes = line.replace("myjob.o%j", "myjob.o"+str(DD))
-        changes = line.replace("myjob.e%j", "myjob.e"+str(DD))
-        changes = line.replace("make_plots.py", "collision_scripts/make_plots"+str(DD)+".py")
-        changes = line.replace("out_file.out", "out_files/out_file"+str(DD)+".out")
+        changes = changes.replace("myjob.e%j", "myjob.e"+str(DD))
+        changes = changes.replace("make_plots.py", "collision_scripts/make_plots"+str(DD)+".py")
+        changes = changes.replace("out_file.out", "out_files/out_file"+str(DD)+".out")
         replacement = replacement + changes + "\n"
 
     sbatch_file.close()
