@@ -1,2 +1,2 @@
 # supercomputer_scripts
-A collection of scripts used on various supercomputers, useful for batch submission.
+A collection of scripts which automate batch submission for supercomputers.
