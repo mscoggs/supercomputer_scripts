@@ -41,6 +41,7 @@ pwd
 date
 
 # Launch MPI code...
+# cores per job automated by N and n
 
 ibrun python make_plots.py >> out_file.out  # Use ibrun instead of mpirun or mpiexec
 
