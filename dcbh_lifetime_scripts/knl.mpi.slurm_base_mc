@@ -23,26 +23,25 @@
 #
 #----------------------------------------------------
 
-#SBATCH -J make_plots           # Job name
-#SBATCH -o myjob.o11       # Name of stdout output file
-#SBATCH -e myjob.e11       # Name of stderr error file
+#SBATCH -J mc_merger_trees           # Job name
+#SBATCH -o myjob.o%j       # Name of stdout output file
+#SBATCH -e myjob.e%j       # Name of stderr error file
 #SBATCH -p normal          # Queue (partition) name
-#SBATCH -N 3               # Total # of nodes
-#SBATCH -n 3               # Total # of mpi tasks
-#SBATCH -t 30:00:00        # Run time (hh:mm:ss)
+#SBATCH -N 1               # Total # of nodes
+#SBATCH -n 32               # Total # of mpi tasks
+#SBATCH -t 24:00:00        # Run time (hh:mm:ss)
 #SBATCH --mail-user=mts2188@columbia.edu
-#SBATCH --mail-type=all    # Send email at begin and end of job
+#SBATCH --mail-type=NONE    # Send email at begin and end of job
 
 # Other commands must follow all #SBATCH directives...
 
-module load phdf5/1.8.16
+module load gcc
+module load gsl
 module list
 pwd
 date
 
 # Launch MPI code...
 # cores per job automated by N and n
-
-ibrun python collision_scripts/make_plots11.py >> out_files/out_file11.out  # Use ibrun instead of mpirun or mpiexec
-
+./mergertree>out_files/out_file.out catalogs/catalog.txt 1 seed
 # ---------------------------------------------------

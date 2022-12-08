@@ -24,8 +24,8 @@
 #----------------------------------------------------
 
 #SBATCH -J make_plots           # Job name
-#SBATCH -o myjob.o%j       # Name of stdout output file
-#SBATCH -e myjob.e%j       # Name of stderr error file
+#SBATCH -o myjob.o9       # Name of stdout output file
+#SBATCH -e myjob.e9       # Name of stderr error file
 #SBATCH -p normal          # Queue (partition) name
 #SBATCH -N 3               # Total # of nodes
 #SBATCH -n 3               # Total # of mpi tasks
@@ -41,7 +41,8 @@ pwd
 date
 
 # Launch MPI code...
+# cores per job automated by N and n
 
-ibrun python make_plots.py >> out_files/out_file9.out  # Use ibrun instead of mpirun or mpiexec
+ibrun python collision_scripts/make_plots9.py >> out_files/out_file9.out  # Use ibrun instead of mpirun or mpiexec
 
 # ---------------------------------------------------
